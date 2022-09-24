@@ -9,6 +9,7 @@
   color: black;
 }
 .about {
+  display: inline-flex;
   color: black;
   text-decoration: none;
   font-weight: bold;

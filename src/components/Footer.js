@@ -3,12 +3,14 @@ import style from "../css/Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer className={style.footer}>
-      <a href="/about" className={style.about}>
-        About
-      </a>
-      <p>Copyright &copy; 2022</p>
-    </footer>
+    <div>
+      <footer className={style.footer}>
+        <p>Copyright &copy; 2022</p>
+        <a href="/about" className={style.about}>
+          About
+        </a>
+      </footer>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import style from "./css/App.module.css";
+import About from "./components/About";
 
 const App = () => {
   const [todoList, setTodoList] = useState([]);
@@ -51,6 +52,7 @@ const App = () => {
           element={
             <div className={style.Container}>
               <Header />
+
               <AddTodoForm onAddTodo={addTodo} />
               {isLoading ? (
                 <span className={style.loading}>Loading ...</span>
