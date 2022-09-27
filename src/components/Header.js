@@ -1,12 +1,11 @@
 import React from "react";
 import style from "../css/Header.module.css";
-
-const notepadImage = new URL("../images/notepad.jpg", import.meta.url);
+import notepad from "../images/notepad.jpg";
 
 const Header = () => {
   return (
     <div className={style.container_header}>
-      <img className={style.headerImage} src={notepadImage} alt="notepad" />
+      <img className={style.headerImage} src={notepad} alt="notepad" />
       <h1 className={style.todoList}>Todo List</h1>
     </div>
   );
