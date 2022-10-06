@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "airtable": "^0.11.5",
+    "ajv-errors": "^1.0.1",
+    "axios": "^0.27.2",
     "babel-preset-es2015": "^6.24.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
