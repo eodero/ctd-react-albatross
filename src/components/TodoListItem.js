@@ -11,14 +11,14 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
         onClick={() => onRemoveTodo(todo.id)}
         className={style.remove_button}
       >
-        Remove
+        X
       </button>
     </li>
   );
 };
 
 TodoListItem.propTypes = {
-  todo: PropTypes.string,
+  todo: PropTypes.object,
   onRemoveTodo: PropTypes.func,
 };
 

@@ -5,15 +5,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import style from "./css/App.module.css";
-import About from "./components/About";
 
 const App = () => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [todoTitle, setTodoTitle] = useState("");
+
+  const handleTodoTitle = (e) => {
+    setTodoTitle(e);
+  };
 
   useEffect(() => {
     fetch(
-      `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,
+      `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default?sort[0][field]=Title&sort[0][direction]=asc`,
       {
         method: "GET",
         headers: {
@@ -35,13 +39,42 @@ const App = () => {
     }
   }, [todoList, isLoading]);
 
-  const addTodo = (newTodo) => {
+  const addTodo = async (body) => {
+    const res = await fetch(
+      `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          fields: {
+            Title: todoTitle,
+          },
+        }),
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+          Accept: "application/form-data",
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const newTodo = await res.json();
+    console.log(newTodo);
     setTodoList([...todoList, newTodo]);
+    console.log(todoList);
   };
 
-  const removeTodo = (id) => {
-    const newList = todoList.filter((todo) => todo.id !== id);
-    setTodoList(newList);
+  const removeTodo = async (id) => {
+    return fetch(
+      `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        },
+      }
+    ).then(() => {
+      const newList = todoList.filter((todo) => todo.id !== id);
+      setTodoList(newList);
+    });
   };
 
   return (
@@ -52,13 +85,13 @@ const App = () => {
           element={
             <div className={style.Container}>
               <Header />
-
-              <AddTodoForm onAddTodo={addTodo} />
+              <AddTodoForm onAddTodo={addTodo} getTodoTitle={handleTodoTitle} />
               {isLoading ? (
                 <span className={style.loading}>Loading ...</span>
               ) : (
                 <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
               )}
+              <hr />
               <Footer />
             </div>
           }
@@ -68,29 +101,4 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
-//  return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route
-//           path="/"
-//           element={
-//             <div className={style.Container}>
-//               <Header />
-//               <AddTodoForm onAddTodo={addTodo} />
-//               {isLoading ? (
-//                 <span className={style.loading}>Loading ...</span>
-//               ) : (
-//                 <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-//               )}
-//               <Footer />
-//             </div>
-//           }
-//         ></Route>
-//         <Route path="/new" element={<h1>New Todo List</h1>}></Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// };
-
 export default App;

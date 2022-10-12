@@ -1,18 +1,15 @@
 .footer {
   display: flex;
   flex-direction: column;
-  padding: 28px;
-  justify-content: center;
   align-items: center;
+  color: black;
+  position: relative;
+  bottom: 0;
   margin-top: auto;
-  /* background-color: rgb(230, 244, 209); */
-  color: black;
 }
-.about {
-  display: inline-flex;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
+
+.paragraph {
+  font-size: 0.8rem;
 }
 
 @media screen and (max-width: 600px) {
