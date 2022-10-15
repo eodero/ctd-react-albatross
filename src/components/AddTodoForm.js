@@ -8,8 +8,8 @@ function AddTodoForm({ onAddTodo, getTodoTitle }) {
 
   const handleTitleChange = (event) => {
     const newTodoTitle = event.target.value;
-    setTodoTitle(newTodoTitle);
     getTodoTitle(newTodoTitle);
+    setTodoTitle(newTodoTitle);
   };
 
   AddTodoForm.propTypes = {
@@ -37,7 +37,7 @@ function AddTodoForm({ onAddTodo, getTodoTitle }) {
         children
         inputRef
       >
-        <span className={style.title}>Todo:</span>
+        <span className={style.title}>Todo</span>
       </InputWithLabel>
       <button type="submit" className={style.button}>
         Add

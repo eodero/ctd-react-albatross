@@ -1,12 +1,17 @@
 .ListItem {
   color: black;
   background: #8b898931;
-  margin: 5px;
+  margin: 20px 20px 0 80px;
   padding: 10px;
+  width: 370px;
+  height: 20px;
   list-style: none;
   display: flex;
   align-items: center;
+  border-bottom: 2px solid rgb(219, 102, 55);
+  background: linear-gradient(90deg, rgb(243, 230, 220), rgb(8, 146, 8) 100%);
 }
+
 .remove_button {
   display: inline-block;
   background: red;
@@ -19,11 +24,23 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 440px) {
   .listItem {
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    width: fit-content;
+    width: 10px;
+    margin: 0;
+  }
+  .remove_button {
+    display: flex;
+    flex-wrap: wrap;
+    background: red;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: auto;
+    font-size: 0.8rem;
+    align-items: center;
+    cursor: pointer;
   }
 }

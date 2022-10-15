@@ -1,11 +1,18 @@
 import React from "react";
-import style from "../css/App.module.css";
-import qcode from "../images/qcode.png";
+import { Link } from "react-router-dom";
+import style from "../css/Footer.module.css";
 
 function About() {
   return (
     <div>
-      <img className={style.about_image} src={qcode} alt="QR code" />
+      <p className={style.about}>
+        This TodoList app will help you manage your time, tasks and streamline
+        your day. Just add a task and start managing your time. It can be used
+        on mobile devices as well as desktop.
+      </p>
+      <Link to="/" className={style.back}>
+        Back
+      </Link>
     </div>
   );
 }
