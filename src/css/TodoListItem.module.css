@@ -1,14 +1,20 @@
+.listItemContainer {
+  display: flex;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: #fffeef;
+}
+
 .ListItem {
   color: black;
   background: #8b898931;
   margin: 20px 20px 0 80px;
-  padding: 10px;
+  padding: 6px 10px;
   width: 370px;
-  height: 20px;
   list-style: none;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid rgb(219, 102, 55);
   background: linear-gradient(90deg, rgb(243, 230, 220), rgb(8, 146, 8) 100%);
 }
 

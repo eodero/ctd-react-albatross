@@ -6,8 +6,8 @@ const Footer = () => {
   const today = new Date();
   const thisYear = today.getFullYear();
   return (
-    <div>
-      <footer className={style.footer}>
+    <div className={style.footer}>
+      <footer>
         <p> &copy; Erick Odero {thisYear}</p>
         <Link to="/about" className={style.link}>
           About

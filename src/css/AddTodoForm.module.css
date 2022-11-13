@@ -3,16 +3,19 @@
   padding: 0;
 }
 
-form {
-  display: inline-block;
-  flex-direction: column;
-  width: 100%;
-  border-bottom: 2px solid #fafafa;
-  margin-left: 80px;
-  /* margin-left: 4px; */
-  margin-top: 0;
-}
+/* form { */
+/* display: inline-block; */
+/* flex-direction: column; */
+/* width: 100%; */
+/* border-bottom: 2px solid #fafafa; */
+/* margin-top: 0; */
+/* } */
 
+.form {
+  display: inline-block;
+  margin-left: 730px;
+  margin-top: 60px;
+}
 input {
   width: 200px;
   height: 25px;
@@ -21,6 +24,8 @@ input {
 .title {
   color: black;
   font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
 }
 .button {
   text-align: center;
@@ -31,7 +36,7 @@ input {
   font-weight: bold;
 
   border: none;
-  margin-left: 68px;
+  margin-left: 40px;
   border-radius: 3px;
   font-size: 0.8rem;
   cursor: pointer;

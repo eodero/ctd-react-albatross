@@ -3,7 +3,7 @@ import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
 import style from "../css/App.module.css";
 
-function Home() {
+export const Home = () => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [todoTitle, setTodoTitle] = useState("");
@@ -68,10 +68,14 @@ function Home() {
           Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
         },
       }
-    ).then(() => {
-      const newList = todoList.filter((todo) => todo.id !== id);
-      setTodoList(newList);
-    });
+    )
+      .then(() => {
+        const newList = todoList.filter((todo) => todo.id !== id);
+        setTodoList(newList);
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
   };
 
   return (
@@ -84,6 +88,4 @@ function Home() {
       )}
     </div>
   );
-}
-
-export default Home;
+};
